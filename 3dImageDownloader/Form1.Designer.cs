@@ -152,7 +152,7 @@
             this.Controls.Add(this.Btn_download);
             this.Controls.Add(this.Txt_url);
             this.Name = "Form1";
-            this.Text = "JJ 3D Image Helper V1.0.0";
+            this.Text = "JJ 3D Image Helper V1.0.1";
             this.ResumeLayout(false);
             this.PerformLayout();
 
