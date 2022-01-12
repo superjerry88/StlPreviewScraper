@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
@@ -200,6 +201,8 @@ namespace _3dImageDownloader
             Log($"[Output] {GetOutputPath(request)}");
         }
 
+        private Dictionary<string, int> ImageCounter = new Dictionary<string, int>();
+        private HashSet<string> ImageList = new HashSet<string>();
         private void DownloadImage(DownloadRequest req, string src)
         {
             try
@@ -210,9 +213,10 @@ namespace _3dImageDownloader
                     justFile = justFile.Split("?")[0];
                 }
                 var fullPath = Path.Combine(GetOutputPath(req), justFile);
+
                 if (Chk_Prefix.Checked)
                 {
-                    justFile = $"{DateTime.Now.Ticks.ToString()[4..]}_{justFile}";
+                    justFile = req.GetFileName(justFile);
                     fullPath = Path.Combine(GetOutputPath(req), justFile);
                 }
 
