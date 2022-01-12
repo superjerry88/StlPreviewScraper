@@ -132,12 +132,12 @@ namespace _3dImageDownloader
             request.ProductName = doc.DocumentNode.SelectNodes("//h1").FirstOrDefault(c => c.HasClass("product-header__title"))?.InnerText;
 
             //Get images
-            var ele = doc.DocumentNode.SelectNodes("//li");
+            var ele = doc.DocumentNode.SelectNodes("//img");
             foreach (var node in ele)
             {
-                if (node.HasClass("smimg-gallery "))
+                if (node.GetAttributeValue("data-type", "") =="image" && node.GetAttributeValue("data-src", "")!= "")
                 {
-                    request.Images.Add(node.GetAttributeValue("id", ""));
+                    request.Images.Add(node.GetAttributeValue("data-src", ""));
                 }
             }
 
