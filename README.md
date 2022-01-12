@@ -1,6 +1,6 @@
 # StlPreviewScraper
 
-Automatically download photos and organised into propert structure.
+Automatically download and organised photos from popular 3D sites
 
 # Features
 - Sort via artist and product name
