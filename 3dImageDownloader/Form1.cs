@@ -153,7 +153,12 @@ namespace _3dImageDownloader
             var doc = web.Load(url);
 
             request.Url = url;
-            request.Author = doc.DocumentNode.SelectNodes("//*[@id=\"content\"]/div[2]/div[2]/div[7]/div[1]/a/span").FirstOrDefault().InnerText;
+
+            var path1 = "//*[@id=\"content\"]/div[2]/div[2]/div[6]/div[1]/a/span";
+            var path2 = "//*[@id=\"content\"]/div[2]/div[2]/div[7]/div[1]/a/span";
+            //*[@id="content"]/div[2]/div[2]/div[6]/div[1]/a/span
+
+            request.Author = doc.DocumentNode.SelectNodes("//span").FirstOrDefault(c => c.HasClass("tbox-title")).InnerText;
             request.ProductName = doc.DocumentNode.SelectNodes("//*[@id=\"content\"]/h1").FirstOrDefault().InnerText.Replace("\n", "").Trim();
 
             //Get images
