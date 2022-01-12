@@ -267,7 +267,7 @@ namespace _3dImageDownloader
 
         private string GetOutputPath(DownloadRequest request = null)
         {
-            var path = Path.Combine(GetBasePath(), request.Author, request.ProductName);
+            var path = Path.Combine(GetBasePath(), request.Author, request.ProductName.Replace("/",""));
             if (Chk_subfolder.Checked) path = Path.Combine(path, "Images");
             return path;
         }
