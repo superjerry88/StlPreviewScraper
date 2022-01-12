@@ -32,7 +32,7 @@
             this.Btn_download = new System.Windows.Forms.Button();
             this.Txt_output = new System.Windows.Forms.RichTextBox();
             this.Chk_subfolder = new System.Windows.Forms.CheckBox();
-            this.Chk_Prefix = new System.Windows.Forms.CheckBox();
+            this.Chk_AutoOpen = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.Label_count = new System.Windows.Forms.Label();
             this.Chk_skipUnknown = new System.Windows.Forms.CheckBox();
@@ -82,17 +82,17 @@
             this.Chk_subfolder.Text = "Group them into \'Image\' sub folder";
             this.Chk_subfolder.UseVisualStyleBackColor = true;
             // 
-            // Chk_Prefix
+            // Chk_AutoOpen
             // 
-            this.Chk_Prefix.AutoSize = true;
-            this.Chk_Prefix.Checked = true;
-            this.Chk_Prefix.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.Chk_Prefix.Location = new System.Drawing.Point(157, 47);
-            this.Chk_Prefix.Name = "Chk_Prefix";
-            this.Chk_Prefix.Size = new System.Drawing.Size(342, 19);
-            this.Chk_Prefix.TabIndex = 4;
-            this.Chk_Prefix.Text = "Add Time Prefix to files (enable this if files have same name)";
-            this.Chk_Prefix.UseVisualStyleBackColor = true;
+            this.Chk_AutoOpen.AutoSize = true;
+            this.Chk_AutoOpen.Checked = true;
+            this.Chk_AutoOpen.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.Chk_AutoOpen.Location = new System.Drawing.Point(157, 47);
+            this.Chk_AutoOpen.Name = "Chk_AutoOpen";
+            this.Chk_AutoOpen.Size = new System.Drawing.Size(211, 19);
+            this.Chk_AutoOpen.TabIndex = 4;
+            this.Chk_AutoOpen.Text = "Auto open folder upon completion";
+            this.Chk_AutoOpen.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -146,7 +146,7 @@
             this.Controls.Add(this.Chk_skipUnknown);
             this.Controls.Add(this.Label_count);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.Chk_Prefix);
+            this.Controls.Add(this.Chk_AutoOpen);
             this.Controls.Add(this.Chk_subfolder);
             this.Controls.Add(this.Txt_output);
             this.Controls.Add(this.Btn_download);
@@ -164,7 +164,7 @@
         private System.Windows.Forms.Button Btn_download;
         private System.Windows.Forms.RichTextBox Txt_output;
         private System.Windows.Forms.CheckBox Chk_subfolder;
-        private System.Windows.Forms.CheckBox Chk_Prefix;
+        private System.Windows.Forms.CheckBox Chk_AutoOpen;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label Label_count;
         private System.Windows.Forms.CheckBox Chk_skipUnknown;

@@ -118,7 +118,7 @@ namespace _3dImageDownloader
                 }
             }
 
-            CreateDirectory(request);
+            ProcessRequest(request);
             Log($"[Output] {GetOutputPath(request)}");
         }
 
@@ -142,7 +142,7 @@ namespace _3dImageDownloader
                 }
             }
 
-            CreateDirectory(request);
+            ProcessRequest(request);
             Log($"[Output] {GetOutputPath(request)}");
         }
 
@@ -166,7 +166,7 @@ namespace _3dImageDownloader
                 }
             }
 
-            CreateDirectory(request);
+            ProcessRequest(request);
             Log($"[Output] {GetOutputPath(request)}");
         }
 
@@ -197,7 +197,7 @@ namespace _3dImageDownloader
                 }
             }
 
-            CreateDirectory(request);
+            ProcessRequest(request);
             Log($"[Output] {GetOutputPath(request)}");
         }
 
@@ -212,13 +212,9 @@ namespace _3dImageDownloader
                 {
                     justFile = justFile.Split("?")[0];
                 }
-                var fullPath = Path.Combine(GetOutputPath(req), justFile);
 
-                if (Chk_Prefix.Checked)
-                {
-                    justFile = req.GetFileName(justFile);
-                    fullPath = Path.Combine(GetOutputPath(req), justFile);
-                }
+                justFile = req.GetFileName(justFile);
+                var fullPath = Path.Combine(GetOutputPath(req), justFile);
 
                 if (!justFile.Contains(".") && Chk_skipUnknown.Checked)
                 {
@@ -241,7 +237,7 @@ namespace _3dImageDownloader
 
         }
 
-        private void CreateDirectory(DownloadRequest request)
+        private void ProcessRequest(DownloadRequest request)
         {
             if (request.CompleteData)
             {
@@ -251,6 +247,11 @@ namespace _3dImageDownloader
                 foreach (var img in request.Images)
                 {
                     DownloadImage(request, img);
+                }
+
+                if (Chk_AutoOpen.Checked)
+                {
+                    Process.Start("explorer.exe", output);
                 }
             }
             else
